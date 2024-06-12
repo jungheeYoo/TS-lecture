@@ -1,3 +1,4 @@
+// ✅ 해시맵 만들기 (해싱 알고리즘을 씀)
 // object의 Type을 선언 해야할 때 씀
 // property에 대해서 미리 알진 못하지만 타입을 알고 있을 때 씀
 // Words 타입이 string만을 property로 가지는 오브젝트라는 것

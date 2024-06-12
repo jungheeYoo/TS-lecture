@@ -34,12 +34,12 @@ let myString: StringAlias = '안녕하세요, 세상!';
 // ✅ object의 타입을 명시적으로 정해주는 방법
 // ✅ optional parameter(선택적 변수)
 // age는 있을 수도 있고 없을 수도 있음
-// const playerNico: {
-//   name: string;
-//   age?: number;
-// } = {
-//   name: 'nico',
-// };
+const playerNico: {
+  name: string;
+  age?: number;
+} = {
+  name: 'nico',
+};
 
 // Alias(별칭) 타입을 쓰면 아래처럼 쓸 수 있음
 const nico1: Player = {
