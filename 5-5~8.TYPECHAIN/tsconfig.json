@@ -1,0 +1,13 @@
+{
+  // 어디에 타입스크립트 파일이 위치하는지
+  // 자바스크립트로 컴파일하고 싶은 모든 디렉터리 넣어줌
+  "include": ["src"], // src의 모든 파일을 확인
+  "compilerOptions": {
+    "outDir": "build", // 자바스크립트 파일이 생셩 될 디렉터리를 지정 // build 폴더에 만들어진 코드를 넣을 것임
+    "target": "ES6", // target 정의
+    "lib": ["ES6"],
+    "strict": true,
+    "esModuleInterop": true,
+    "module": "CommonJS"
+  }
+}
