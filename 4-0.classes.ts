@@ -1,6 +1,7 @@
 // ✅ 추상 클래스 (Abstract Class)
 // 다른 클래스가 상속받을 수 있는 클래스
 // 😔 하지만 이 클래스는 직접 새로운 인스턴스를 만들 수는 없다 ⬇
+// 추상 클래스 안에서는 추상 메소드를 만들 수 있다
 abstract class User {
   constructor(
     // private firstName: string,
@@ -12,7 +13,7 @@ abstract class User {
   ) {}
   // ✅ 추상 메소드
   // 구현이 되어 있지 않은(코드가 없는) 메소드
-  // call signature만 갖고 있음
+  // 메소드를 구현해서는 안 되고 메솓의 call signature만 적어야 함
   // 함수 이름과, argument를 안받을 때도 있지만
   // argument를 받을 경우 argument의 이름과 타입, 그리고 함수의 리턴타입을 정의함
   abstract getNickName(): void;
@@ -22,13 +23,14 @@ abstract class User {
   //   return `${this.firstName} ${this.lastName}`;
   // }
   // ✨ 추상 메소드를 만들려면, 메소드를 클래스 안에서 구현하지 않으면 돼
-  // 이 부분 다시 정리 해야함
+  // 추상 메소드는 네가 추상 클래스를 상속받는 모든 것들이 구현을 해야하는 메소드를 의미
   getFullName() {
     // 이 부분을 작성하지 않으면 돼
     // 이 부분이 메소드의 implementation(구현)이야
     return `${this.firstName} ${this.lastName}`;
   }
   // 그리고 만약 추상 클래스에서 getFullName의 예시처럼 메소드를 구현한다면
+  // 상속받는 클래스는 getFullName을 호출할 수 있게 됨
 }
 
 // ----------------------------------------------------
