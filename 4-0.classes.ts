@@ -3,6 +3,7 @@
 // 😔 하지만 이 클래스는 직접 새로운 인스턴스를 만들 수는 없다 ⬇
 // 추상 클래스 안에서는 추상 메소드를 만들 수 있다
 abstract class User {
+  // constructor는 객체가 생성될 때 실행되는 함수로, 객체의 초기 상태를 설정하는 역할
   constructor(
     // private firstName: string,
     // private lastName: string,
