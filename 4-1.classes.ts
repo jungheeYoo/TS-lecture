@@ -21,8 +21,11 @@ type Words = {
 
 // }
 
+// 🔸 Dict 클래스
+// 여러 단어와 정의를 관리하는 사전 역할
+// words라는 객체에 단어를 저장하고 조회하는 기능을 제공
 class Dict {
-  // 🔸 wordsfmf initializer(초기화) 없이 선언해주고
+  // 🔸 words를 initializer(초기화) 없이 선언해주고
   private words: Words;
   // 🔸 Constructor에서 수동으로 초기화
   constructor() {
@@ -34,6 +37,8 @@ class Dict {
   add(word: Word) {
     if (this.words[word.term] === undefined) {
       this.words[word.term] = word.def;
+      // this.words 객체의 word.term 키에 word.def 값을 할당하는 역할
+      // 할당 연산자(=)는 오른쪽의 값을 왼쪽의 키에 저장하는 역할
     }
   }
   // 🔸 term을 사용해 def를 찾는 불러오는 메소드
@@ -43,13 +48,40 @@ class Dict {
 }
 
 // 🔸 Word 클래스
+// ✨ 단어(term)와 정의(def)를 포함하는 객체를 생성하는 역할
+// 이 객체는 Word 클래스의 인스턴스로, 단어와 정의를 하나의 구조화된 형태로 제공
+// Word 클래스는 단어와 그 정의를 캡슐화하는 역할을 하며,
+// 이 인스턴스를 Dict 클래스의 메서드에 전달하여 단어 사전에 추가하거나 조회할 때 사용
 class Word {
   constructor(public term: string, public def: string) {}
 }
 
 const kimchi = new Word('kimchi', '한국의 음식');
+const bibimbap = new Word('bibimbap', '한국의 밥 요리');
 
 const dict = new Dict();
 
+console.log(dict);
+// // 초기화 됨
+// Dict: {
+//   "words": {}
+// }
+
 dict.add(kimchi);
+dict.add(bibimbap);
 dict.def('kimchi');
+
+console.log(kimchi);
+// // 단어(term)와 정의(def)를 포함하는 객체를 생성
+//  Word: {
+//   "term": "kimchi",
+//   "def": "한국의 음식"
+// }
+
+console.log(dict);
+// Dict: {
+//   "words": {
+//     "kimchi": "한국의 음식",
+//     "bibimbap": "한국의 밥 요리"
+//   }
+// }
