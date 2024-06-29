@@ -54,6 +54,7 @@
 // const kimchi: Food = 'delicious';
 
 // // 🔸 alias(대체명) 사용
+// // nickname에 string 쓰는 대신 별칭 사용
 // type Nickname = string;
 // type Health = number;
 
@@ -66,7 +67,7 @@
 // type Friends = Array<string>;
 
 // // ✨ 매우 자주 볼 예정
-// // 🔸 타입을 지정된 옵션으로만 제한
+// // 🔸 타입을 지정된 옵션으로만 제한할 수 있음 - 별칭
 // // type Team = string 와 같은 concrete 타입을 썼어야 했지만
 // // team이 일반적인 string이 아니라 특정 string이 되도록 한다
 // // 즉, concrete 타입의 특정 값을 쓸 수 있다
@@ -88,17 +89,17 @@
 
 ///////////////////////////////////////////////////////////
 // ✅ interfaces
-// 오브젝트의 모양을 특정해주기 위한 것 (두 가지 방법)
-// 오브젝트의 모양을 결정한다는 같은 역할을 함
-// 😎 React.js를 이용해 작업할 때 많이 사용
 
 type Team = 'read' | 'blue' | 'yellow';
 type Health = 1 | 5 | 10;
 
+// ✅타입스크립트에게 오브젝트의 모양을 알려주는 방법 두 가지
+
 // 🔸 첫 번째
-// type을 쓰고 오브젝트 모양을 써주는 방법
+// 🔸 type을 쓰고 오브젝트 모양을 써주는 방법
 // interfaces 키워드에 비해 좀 더 활용할 수 있는 것이 많다
 // 오브젝트 모양, 특정 값들로만 제한, 타입 alias, ...
+// interfaces와 문법 차이말고도, type이 좀 더 쓰임이 많다. 이것저것 할 수 있다
 // type Player = {
 //   nickname: string;
 //   team: Team;
@@ -106,10 +107,17 @@ type Health = 1 | 5 | 10;
 // };
 
 // 🔸 두 번째
-// interfaces
+// 🔸 interfaces
+// 오브젝트의 모양을 특정해주기 위한 것 (두 가지 방법)
+// 오브젝트의 모양을 결정한다는 같은 역할을 함
+// 😎 React.js를 이용해 작업할 때 많이 사용
+
 // 오로지 오브젝트의 모양을 타입스크립트에게 설명해주기 위해서만 사용 됨
+// 이 한가지 목적만 가짐
+// 누군가 인터페이스를 쓴다면 그저 오브젝트의 모양을 타입스크립트에게 설명해주려고
 // 객체지향 프로그램 개념 활용. 클래스를 다루는 듯한 느낌
-// interface Hello = string
+// interface Hello = string 이런거 안 됨 ❌
+// 타입스크립트에게 오브젝트의 모양을 알려줄때는 인터페이스 사용 선호 (니꼬썜)
 interface Player {
   nickname: string;
   team: Team;

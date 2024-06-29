@@ -3,12 +3,14 @@
 // 다형성을 이룰 수 있는 방법은 제네릭을 사용하는 것
 // 제네릭은 placeholder 타입을 쓸 수 있도록 해줌
 // concrete 타입이 아니라 placeholder 타입
+// 때가 되면, 타입스크립트가 placeholder 타입을 concrete 타입으로 바꾸어 줌
 
 // ✅ 로컬 스토리지 API 만듦. 제네릭 사용
 // 자바스크립트에서 사용한 로컬 스토리지 API와 같은 API를 가지는 클래스를 만듦
 // Storage는 타입스크립트에 의해 이미 선언된 자바스크립트의 웹 스토리지 API를 위한 인터페이스임
 // 그래서 이름 다르게 함 SStorage
 interface SStorage<T> {
+  // 이것은 key가 제한되지 않은 오브젝트를 정의하게 해줌
   [key: string]: T;
 }
 
@@ -18,7 +20,7 @@ class LocalStorage<T> {
     //  key와 value를 스토리지에 저장
     this.storage[key] = value;
   }
-  // remove는 string 형식의 key를 받아서 이걸 로컬 스토리지로부터 지움
+  // remove는 string 형식의 key를 받아서 이걸 로컬 스토 리지로부터 지움
   remove(key: string) {
     delete this.storage[key];
   }

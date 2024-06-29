@@ -1,48 +1,49 @@
-// // type과 interface는 타입스크립트에게 오브젝트의 구조를 알려주는
-// // 같은 작업을 수행할 수 있지만
-// // 둘 중 선호하게 만드는 기능이 있음
+// type과 interface는 타입스크립트에게 오브젝트의 구조를 알려주는
+// 같은 작업을 수행할 수 있지만
+// 둘 중 선호하게 만드는 기능이 있음
 
-// // ✅ 복습 - 추상 클래스 (Abstract Class)
-// // 추상 클래스는 이걸 상속 받는 다른 클래스가 가질
-// // property와 메소드를 지정하도록 해줌
-// // 다른 클래스가 가져야 할 property와 메소드를 명시할 수 있도록 도와줌
-// // 추상 클래스의 인스턴스를 만들 수 없음
+// ✅ 복습 - 추상 클래스 (Abstract Class)
+// 추상 클래스는 이걸 상속 받는 다른 클래스가 가질
+// property와 메소드를 지정하도록 해줌
+// 다른 클래스가 가져야 할 property와 메소드를 명시할 수 있도록 도와줌
+// 추상 클래스의 인스턴스를 만들 수 없음
 
-// abstract class User {
-//   // 만약 private를 쓰면 firstName과 lastName을 Player가 접근할 수 없음 ❌
-//   constructor(protected firstName: string, protected lastName: string) {}
-//   // 두 개의 메소드
-//   abstract sayHi(naem: string): string; // string으로 된 name을 받아서 string 반환
-//   abstract fullName(): string; // 이건 그냥 string을 반환
-// }
-// // new User() // ❌
+abstract class User {
+  // 만약 private를 쓰면 firstName과 lastName을 Player가 접근할 수 없음 ❌
+  constructor(protected firstName: string, protected lastName: string) {}
+  // 두 개의 메소드
+  abstract sayHi(naem: string): string; // string으로 된 name을 받아서 string 반환
+  abstract fullName(): string; // 이건 그냥 string을 반환
+}
+// new User() // ❌
 
-// // 클래스 Player 는 User 를 상속
-// class Player extends User {
-//   // string을 반환
-//   fullName() {
-//     return `${this.firstName} ${this.lastName}`;
-//   }
-//   // sayHi는 string을 리턴해야되고 name을 받아야함
-//   sayHi(naem: string) {
-//     return `Hello ${name}. My name is ${this.fullName()}`;
-//   }
-// }
+// 클래스 Player 는 User 를 상속
+class Player extends User {
+  // string을 반환
+  fullName() {
+    return `${this.firstName} ${this.lastName}`;
+  }
+  // sayHi는 string을 리턴해야되고 name을 받아야함
+  sayHi(naem: string) {
+    return `Hello ${name}. My name is ${this.fullName()}`;-
+  }
+}
 
-// // 🤓 그럼 왜 추상 클래스를 사용하느냐?
-// // 상속받는 클래스가 어떻게 동작해야할 지 일러주기 위해서 사용
-// // 클래스에게 어떻게 구현할 지에 대해서는 말해주지 않지만
-// // 무엇을 구현해야할 지에 대해서는 알려줄 수 있다
-// // 예를 들어 sayHi와, fullName이 있어야 한다는 것을 알려줌
-// // 난 네가 무엇을 어떻게 하는지는 관심이 없지만, string을 반환하는 sayHi와
-// // string을 반환하는 fullName을 만들어내기만 하면 된다고 하는 것
+// 🤓 그럼 왜 추상 클래스를 사용하느냐?
+// 상속받는 클래스가 어떻게 동작해야할 지 일러주기 위해서 사용
+// 클래스에게 어떻게 구현할 지에 대해서는 말해주지 않지만
+// 무엇을 구현해야할 지에 대해서는 알려줄 수 있다
+// 예를 들어 sayHi와, fullName이 있어야 한다는 것을 알려줌
+// 난 네가 무엇을 어떻게 하는지는 관심이 없지만, string을 반환하는 sayHi와
+// string을 반환하는 fullName을 만들어내기만 하면 된다고 하는 것
 
-// // 😥 But, 추상 클래스의 문제점은, 자바스크립트에는 abstract의 개념이 없다
-// // 추상 클래스를 만들면 결국 클래스로 변함. 일반적인 클래스로 바뀌어버림
+// 😥 But, 추상 클래스의 문제점은, 자바스크립트에는 abstract의 개념이 없다
+// 추상 클래스를 만들면 결국 클래스로 변함. 일반적인 클래스로 바뀌어버림
+// 파일 크기가 좀 더 커지고, 추가 클래스가 만들어짐
 
-// // 😮 그렇다면 왜 추상 클래스를 만드는가?
-// // 다른 클래스들이 표준화 된 모양
-// // 표준화 된 property와 메소드를 갖도록 해주는 청사진을 만들기 위해 추상클래스를 사용
+// 😮 그렇다면 왜 추상 클래스를 만드는가?
+// 다른 클래스들이 표준화 된 모양
+// 표준화 된 property와 메소드를 갖도록 해주는 청사진을 만들기 위해 추상클래스를 사용
 
 /////////////////////////////////////////////////////
 // ✅ interfaces
@@ -75,6 +76,8 @@ interface Human {
 // implements를 쓰면, 코드가 가벼워지고
 // User 인터페이스를 추적할 수 없음. implements는 타입스크립트에만 존재.
 // 이건 코드가 보여지지 않음.
+// 만약 추상 클래스를 다른 클래스들이 특정 모양을 따르도록 하기 위한 용도로 쓴다면
+// 같은 역할을 하는 인터페이스를 쓰는게 더 좋다
 
 // 타입스크립트가 Player는 User 인터페이스를 상속해야 한다고 알려줌
 // Player가 나열 된 property들을 갖고 있지 않다고 알려줌
@@ -83,7 +86,7 @@ interface Human {
 // 이런 목적을 이루기 위해 추상 클래스를 사용했는데, 이건 자바스크립트에서 클래스로 바뀜
 // 하지만 인터페이스를 사용하면 상속하는 방법이 더 간단해짐
 
-// 💩 인터페이스를 상속할 때는 property를 private로 만들지 못함! ❌
+// 💩 대신 인터페이스를 상속할 때는 property를 private로 만들지 못함! ❌
 // ✨ public이 되어야 함!
 class Player implements User, Human {
   constructor(
